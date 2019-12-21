@@ -3,20 +3,21 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 
+//GET SECTION
+// GET single table - movies
+// router.get('/', (req, res) => {
+//     // Find all feedbacks and return them
+//     pool.query('SELECT * FROM "movies" ORDER BY "id" DESC')
+//         .then((result) => {
+//             res.send(result.rows);
+//         })
+//         .catch((error) => {
+//             console.log('Error GET', error);
+//             res.sendStatus(500);
+//         });
+// })
 
-// GET all submits that have been placed, populate with data from the feedback database
-router.get('/', (req, res) => {
-    // Find all feedbacks and return them
-    pool.query('SELECT * FROM "movies" ORDER BY "id" DESC')
-        .then((result) => {
-            res.send(result.rows);
-        })
-        .catch((error) => {
-            console.log('Error GET', error);
-            res.sendStatus(500);
-        });
-})
-
+//GET joined multiple tables
 router.get('/details', (req, res) => {
     // Find all feedbacks and return them
     pool.query(`SELECT * FROM "movies"
@@ -61,30 +62,55 @@ router.get('/details', (req, res) => {
 //         })
 // });
 
-//PUT call to update flag from admin page
-// router.put('/:id', (req, res) => {
+//PUT call update title
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const status = req.body;
+    console.log(status, id);
+
+    let queryString = `UPDATE "movies" SET "title"='${status.title}', 
+                        "description"='${status.description}' 
+                        WHERE "id" = $1;`;
+
+    pool.query(queryString, [id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+});
+
+//PUT edit title and description
+// router.put('/edit/:id', (req, res) => {
 //     const id = req.params.id;
-//     const status = req.body.status;
+//     const updateInfo = req.body.update;
 //     console.log(status, id);
-//     let update;
-
-//     if (status == "false") {
-//         update = `true`;
-//     } else if (status == "true") {
-//         update = `false`;
+//     if (!status) {
+//         return;
 //     }
-
-//     let queryString = `UPDATE "feedback" SET "flagged"='${update}' WHERE "id" = $1;`;
-
-//     pool.query(queryString, [id])
+//     pool.query(`SELECT "title" FROM "movies" WHERE "id" = '${id}';`)
 //         .then((response) => {
-//             res.sendStatus(200);
+//             console.log(response.rows.title)
+//             let update = response.rows.title + updateInfo;
+//             let queryString = `UPDATE "movies" SET "title"='${update}' WHERE "id" = $1;`;
+
+//             pool.query(queryString, [id])
+//                 .then((response) => {
+//                     res.sendStatus(200);
+//                     return;
+//                 })
+//                 .catch((err) => {
+//                     console.log(err);
+//                     res.sendStatus(500);
+//                     return;
+//                 })
 //         })
 //         .catch((err) => {
 //             console.log(err);
 //             res.sendStatus(500);
+//             return;
 //         })
-// });
-
-
+// }); // END PUT Route
 module.exports = router;

@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #222;
+  background-color: rgb(6,9, 13);
   height: 50px;
   padding: 20px;
   color: white;
@@ -22,4 +22,9 @@
 
 .App {
   margin: 1rem 1rem;
+}
+
+body {
+  background-color: rgb(36, 36, 36);
+  color: rgb(255, 255, 255)
 }

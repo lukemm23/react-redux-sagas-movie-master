@@ -13,9 +13,6 @@ class App extends Component {
         <div className="App">
         <header className="App-header">
           <h1 className="App-title">Prime Movie Weekend!</h1>
-          {/* <div className="link"><Link to="/">Home</Link></div>
-          <div className="link"><Link to="/api/details">Details</Link></div>
-          <div className="link"><Link to="/api/edit">Edit</Link></div> */}
         </header>
           <Route path="/" exact component={Home} />
           <Route path="/details" component={Details} />
