@@ -8,14 +8,31 @@ class Home extends Component {
     this.props.dispatch({
       type: 'GET_MOVIES',
     })
+    this.props.dispatch({
+      type: 'GET_DETAILS',
+    })
   }
 
+  clickEvent(event, title) {
+    this.props.dispatch({
+      type: 'GET_ITEM_DETAIL',
+      payload: title
+    })
+    this.props.dispatch({
+      type: 'GET_ITEM_MOVIE',
+      payload: title
+    })
+    this.props.history.push('/details');
+  }
 
   render() {
-    const moviesArr = this.props.store.moviesReducer.map((item, index) => {
+    const moviesArr = this.props.store.moviesReducer.items.map((item, index) => {
       return (
         <tr key={index}>
-          <td><img alt="" src={item.poster}></img></td>
+          <td
+            onClick={(event) => this.clickEvent(event, item.title)}>
+            <img alt="" src={item.poster}></img>
+          </td>
           <td>
             <h2>{item.title}</h2>
             {item.description}

@@ -17,6 +17,21 @@ router.get('/', (req, res) => {
         });
 })
 
+router.get('/details', (req, res) => {
+    // Find all feedbacks and return them
+    pool.query(`SELECT * FROM "movies"
+    JOIN "movies_genres" ON "movies"."id" = "movies_genres"."movies_id"
+    JOIN "genres" ON "movies_genres"."genres_id" = "genres"."id"
+    ORDER BY "movies"."id" ASC;`)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log('Error GET', error);
+            res.sendStatus(500);
+        });
+})
+
 // POST feedback submitted, add to DB
 // router.post('/', (req, res) => {
 //     const newFeedback = req.body;
