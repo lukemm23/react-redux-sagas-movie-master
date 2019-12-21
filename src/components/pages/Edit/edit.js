@@ -9,6 +9,15 @@ class Edit extends Component {
     description: '',
   }
 
+//EVENT HANDLER 
+onInputChange = (event, inputKey) => {
+  this.setState({
+    [inputKey]: event.target.value
+  });
+  console.log(this.state);
+}
+
+//PAGE ROUTING
   backHome = () => {
     this.props.history.push('/');
   }
@@ -29,8 +38,8 @@ class Edit extends Component {
         <button onClick={this.backHome}>Back Home</button>
         <button onClick={this.details}>Cancel</button>
         <button>Save</button>
-        <input placeholder="title"></input>
-        <input placeholder="description"></input>
+        <input onChange={(event)=>this.onInputChange(event, 'title')} placeholder="title"></input>
+        <input onChange={(event)=>this.onInputChange(event, 'description')} placeholder="description"></input>
         <ul>
           {itemArr}
         </ul>
