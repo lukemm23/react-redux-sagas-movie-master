@@ -31,10 +31,10 @@ submitChange = (event, id) => {
   this.props.dispatch({
     type: 'SUBMIT',
     payload: {...this.state, callBack:()=>{
+      console.log('go back');
       this.props.history.push('/details');
     }}
   })
-  
 }
 
 //PAGE ROUTING
