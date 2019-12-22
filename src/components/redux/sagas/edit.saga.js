@@ -2,6 +2,7 @@ import getDetailsSaga from './getDetails.saga';
 import axios from 'axios';
 import { put, takeLatest, call } from 'redux-saga/effects';
 
+//axio PUT to update title and description on edit page
 function* edit(action) {
     try {
          yield axios({

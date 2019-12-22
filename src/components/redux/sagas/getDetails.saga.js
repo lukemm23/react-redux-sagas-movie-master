@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, call } from 'redux-saga/effects';
 
+//GET saga for movie list
 function* getDetails(action) {
     try {
         console.log('running?');

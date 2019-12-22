@@ -12,14 +12,6 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './components/redux/reducers/_root.reducer';
 import rootSaga from './components/redux/sagas/_root.saga';
 
-//SAGAS//
-// Create the rootSaga generator function
-
-
-
-
-
-
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 

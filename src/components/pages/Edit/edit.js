@@ -5,12 +5,13 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 class Edit extends Component {
+  //local state to track input
   state = {
     id: null,
     title: '',
     description: '',
   }
-
+//mounting selected id onto local state
   componentDidMount () {
     this.setState ({
       id: this.props.store.detailReducer.selected[0].movies_id,
@@ -18,7 +19,7 @@ class Edit extends Component {
     console.log(this.state.id);
   }
 
-//EVENT HANDLERS
+//event handlers for input text fields
 onInputChange = (event, inputKey) => {
   console.log(this.state.id);
   this.setState({
@@ -27,6 +28,7 @@ onInputChange = (event, inputKey) => {
   console.log(this.state);
 }
 
+//submit handler to save inputs into database
 submitChange = (event, id) => {
   this.props.dispatch({
     type: 'SUBMIT',
@@ -63,14 +65,14 @@ submitChange = (event, id) => {
         <TextField 
         id="outlined-basic" 
         label="title" 
-        variant="outlined"  
+        variant="filled"  
         onChange={(event)=>this.onInputChange(event, 'title')} 
         color="default"/>
 
         <TextField 
         id="outlined-basic" 
         label="description" 
-        variant="outlined"  
+        variant="filled"  
         onChange={(event)=>this.onInputChange(event, 'description')} 
         color="default"/>
           
