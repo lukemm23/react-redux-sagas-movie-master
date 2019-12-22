@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 class Details extends Component {
     // componentDidMount() { // react Component method
@@ -23,17 +24,29 @@ class Details extends Component {
         const itemArr = this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected.map((item, index) => {
             return (
                 <li key={index}>
+                    
                     {item.name}
+                    
                 </li>
             )
         })
 
         return (
             <div className="App">
-                <button onClick={this.backHome}>Back Home</button>
-                <button onClick={this.edit}>Edit</button>
+                <Button variant="contained" color="primary" onClick={this.backHome}>Back Home</Button>
+                <Button variant="contained" color="primary" onClick={this.edit}>Edit</Button>
+                <br/>
+                <div>
+                <Grid container> 
+                <Grid item xs={4}>
+                <img alt="" src={this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected[0]&&this.props.store.detailReducer.selected[0].poster}></img>
+                </Grid>
+                <Grid item xs={7}> 
                    <h1>{this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected[0]&&this.props.store.detailReducer.selected[0].title}</h1> 
-                   {this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected[0]&&this.props.store.detailReducer.selected[0].description}
+                   <p>{this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected[0]&&this.props.store.detailReducer.selected[0].description}</p>
+                   </Grid>
+                   </Grid>
+                   </div>
                 <ul>
                     {itemArr}
                 </ul>
@@ -41,5 +54,7 @@ class Details extends Component {
         );
     }
 }
+
+
 
 export default connect(mapStoreToProps)(Details);

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+//material UI
+import Grid from '@material-ui/core/Grid';
 
 class Home extends Component {
+
+  //GET saga for movie list
   componentDidMount() { // react Component method
     this.props.dispatch({
       type: 'GET_DETAILS',
@@ -24,26 +27,21 @@ class Home extends Component {
     const moviesArr = this.props.store.detailReducer.items.map((item, index) => {
         if(buffer[item.movies_id] === undefined) {
           buffer[item.movies_id] = true;
-          return (<tr key={index}>
-            <td
-              onClick={(event) => this.clickEvent(event, item.title)}>
-              <img alt="" src={item.poster}></img>
-            </td>
-            <td>
-              <h2>{item.title}</h2>
-              {item.description}
-            </td>
-          </tr>)
+          return (<Grid 
+          key={index} 
+          onClick={(event) => this.clickEvent(event, item.title)} 
+          item xs={3}>
+            <img alt="" src={item.poster}></img>
+            <h4>{item.title}</h4>
+          </Grid>)
         } else {return null;}
       })
 
     return (
-      <div className="App">
-        <table>
-          <tbody>
-            {moviesArr}
-          </tbody>
-        </table>
+      <div>
+      <Grid container spacing={3}>
+        {moviesArr}
+      </Grid>
       </div>
     );
   }

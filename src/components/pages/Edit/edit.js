@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class Edit extends Component {
   state = {
@@ -54,11 +55,26 @@ submitChange = (event, id) => {
 
     return (
       <div className="App">
-        <button onClick={this.backHome}>Back Home</button>
-        <button onClick={this.details}>Cancel</button>
-        <button onClick={this.submitChange}>Save</button>
-        <input onChange={(event)=>this.onInputChange(event, 'title')} placeholder="title"></input>
-        <input onChange={(event)=>this.onInputChange(event, 'description')} placeholder="description"></input>
+        <Button variant="contained" color="primary" onClick={this.backHome}>Back Home</Button>
+        <Button variant="contained" color="primary" onClick={this.details}>Cancel</Button>
+        <Button variant="contained" color="primary" onClick={this.submitChange}>Save</Button>
+        <div>
+          <h4>Input Title and Description</h4>
+        <TextField 
+        id="outlined-basic" 
+        label="title" 
+        variant="outlined"  
+        onChange={(event)=>this.onInputChange(event, 'title')} 
+        color="default"/>
+
+        <TextField 
+        id="outlined-basic" 
+        label="description" 
+        variant="outlined"  
+        onChange={(event)=>this.onInputChange(event, 'description')} 
+        color="default"/>
+          
+        </div>
         <ul>
           {itemArr}
         </ul>

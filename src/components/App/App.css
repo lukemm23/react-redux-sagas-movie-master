@@ -4,7 +4,8 @@
   padding: 20px;
   color: white;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
 .App-title {
@@ -27,4 +28,13 @@
 body {
   background-color: rgb(36, 36, 36);
   color: rgb(255, 255, 255)
+}
+
+.App Button {
+  margin-bottom: 3rem;
+  margin-right: 1rem;
+}
+
+.App TextField  {
+  margin-right: 1rem;
 }
