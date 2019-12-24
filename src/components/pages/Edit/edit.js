@@ -47,6 +47,7 @@ submitChange = (event, id) => {
     this.props.history.push('/details');
   }
   render() {
+    
     const itemArr = this.props.store.detailReducer.selected&&this.props.store.detailReducer.selected.map((item, index) => {
       return (
         <li key={index}>
@@ -77,9 +78,11 @@ submitChange = (event, id) => {
         color="default"/>
 
         <TextField 
-        id="outlined-basic" 
+        id="outlined-multiline-static"
         label="description" 
         variant="filled"  
+        rows="4"
+        multiline
         onChange={(event)=>this.onInputChange(event, 'description')} 
         color="default"/>
           
