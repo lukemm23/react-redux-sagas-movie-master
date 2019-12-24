@@ -61,6 +61,13 @@ submitChange = (event, id) => {
         <Button variant="contained" color="primary" onClick={this.details}>Cancel</Button>
         <Button variant="contained" color="primary" onClick={this.submitChange}>Save</Button>
         <div>
+        <div>
+          New Title Value: {this.state.title}
+        </div>
+        <br></br>
+        <div>
+          New Descriptions: {this.state.description}
+        </div>
           <h4>Input Title and Description</h4>
         <TextField 
         id="outlined-basic" 
@@ -80,6 +87,7 @@ submitChange = (event, id) => {
         <ul>
           {itemArr}
         </ul>
+        
       </div>
     );
   }

@@ -14,9 +14,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Prime Movie Weekend!</h1>
         </header>
+        <div className="App-body">
           <Route path="/" exact component={Home} />
           <Route path="/details" component={Details} />
           <Route path="/edit" component={Edit} />
+          </div>
         </div>
       </Router>
     );

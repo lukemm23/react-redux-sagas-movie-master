@@ -27,10 +27,10 @@ class Home extends Component {
     const moviesArr = this.props.store.detailReducer.items.map((item, index) => {
         if(buffer[item.movies_id] === undefined) {
           buffer[item.movies_id] = true;
-          return (<Grid 
+          return (<Grid item xs={3} justify="center"  alignItems="center"
           key={index} 
           onClick={(event) => this.clickEvent(event, item.title)} 
-          item xs={3}>
+          >
             <img alt="" src={item.poster}></img>
             <h4>{item.title}</h4>
           </Grid>)
@@ -39,7 +39,7 @@ class Home extends Component {
 
     return (
       <div>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} direction="row">
         {moviesArr}
       </Grid>
       </div>
