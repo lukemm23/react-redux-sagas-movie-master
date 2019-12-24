@@ -13,16 +13,14 @@ This is a movies collections page that shows images of movies, displaying the ti
 
 ## Screen Shot
 
-<!-- ![](/public/images/home_page.jpg) -->
+![](/public/images/home-page.png)
+![](/public/images/detail-page.png)
+![](/public/images/edit-page.png)
 ## Description
 
 This is a weekend solo project that created a full stack web page with react, redux, axios, redux-saga, material-UI, node, express, sql, using postgres database. 
 
 1. GET request renders database resources. 
-2. DELETE request to delete genre of selected movie from database. 
-3. POST request to add new genre to the selected movie into database.
-4. PUT request to update selected movie's title and description to database.
+2. PUT request to update selected movie's title and description to database.
 
-
-<!-- deployed to heroku: https://morning-depths-33910.herokuapp.com -->
 email me for any other questions @ lukemm23@gmail.com
