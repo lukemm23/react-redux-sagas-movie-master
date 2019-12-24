@@ -17,7 +17,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Create one store that all components can use
 const storeInstance = createStore(
-        rootReducer,
+    rootReducer,
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
@@ -26,5 +26,5 @@ const storeInstance = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
-document.getElementById('root'));
+    document.getElementById('root'));
 registerServiceWorker();

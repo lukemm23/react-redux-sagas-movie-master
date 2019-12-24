@@ -1,7 +1,7 @@
 import { all, takeEvery } from 'redux-saga/effects';
 import getDetailsSaga from './getDetails.saga';
 import editSaga from './edit.saga';
- 
+
 // all saga registration
 function* rootSaga() {
     console.log('In Watcher Saga');
